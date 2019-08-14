@@ -18,6 +18,7 @@ const store = new Vuex.Store({
 			    data: provider  
 			}) 
 			console.log(state.userInfo);
+			console.log(provider)
 		},
 		logout(state) {
 			state.hasLogin = false;
