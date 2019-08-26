@@ -10,6 +10,7 @@
 				}]"
 				:class="icon"
 			></text>
+			<uni-icon v-else-if="uniIconType" :type="uniIconType" :size="uniIconSize"></uni-icon>
 			<text class="cell-tit clamp">{{title}}</text>
 			<text v-if="tips" class="cell-tip">{{tips}}</text>
 			<text class="cell-more yticon"
@@ -21,6 +22,7 @@
 </template>
  
 <script>
+	import uniIcon from "@/components/uni-icon/uni-icon.vue";
 	/**
 	 *  简单封装了下， 应用范围比较狭窄，可以在此基础上进行扩展使用
 	 *  比如加入image， iconSize可控等
@@ -36,10 +38,21 @@
 				},
 			}
 		},
+		components: {
+			uniIcon,
+		},
 		props: {
 			icon: {
 				type: String,
 				default: ''
+			},
+			uniIconType: {
+				type: String,
+				default: ''
+			},
+			uniIconSize: {
+				type: String,
+				default: '30'
 			},
 			title: {
 				type: String,

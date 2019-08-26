@@ -92,8 +92,11 @@
 				</list-cell>
 				<!--  #endif -->
 				<list-cell icon="icon-pinglun-copy" iconColor="#ee883b" title="晒单" tips="晒单抢红包"></list-cell>
-				<list-cell icon="icon-shoucang_xuanzhongzhuangtai" iconColor="#54b4ef" title="我的收藏"></list-cell>
+				<list-cell icon="icon-shoucang_xuanzhongzhuangtai" iconColor="#54b4ef" title="我的收藏" @eventClick="navTo('/pages/collection/collection')"></list-cell>
 				<list-cell icon="icon-shezhi1" iconColor="#e07472" title="设置" border="" @eventClick="navTo('/pages/set/set')"></list-cell>
+				<list-cell uniIconType="phone-filled" uniIconSize="23"  iconColor="#eb507e" title=" 绑定手机号" border="" @eventClick="navTo('/pages/authorize/authorize')"></list-cell>
+				<list-cell icon="icon-dizhi" iconColor="#eb507e" title="意见反馈" border="" @eventClick="navTo('/pages/feedback/feedback')"></list-cell>
+				<list-cell uniIconType="scan" uniIconSize="20"  iconColor="#eb507e" title="扫一扫" border="" @eventClick="navTo('/pages/scan/scan')"></list-cell>
 			</view>
 		</view>
 
@@ -102,6 +105,7 @@
 </template>
 <script>
 	import listCell from '@/components/mix-list-cell';
+	import uniIcon from "@/components/uni-icon/uni-icon.vue";
 	import {
 		mapState
 	} from 'vuex';
@@ -110,7 +114,8 @@
 		pageAtTop = true;
 	export default {
 		components: {
-			listCell
+			listCell,
+			uniIcon,
 		},
 		data() {
 			return {

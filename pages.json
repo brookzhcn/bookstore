@@ -54,8 +54,12 @@
 			"style": {
 				"navigationBarTitleText": "设置"
 			}
+		},{
+			"path": "pages/authorize/authorize",
+			"style": {
+				"navigationBarTitleText": "绑定手机号码"
+			}
 		},
-
 		{
 			"path": "pages/userinfo/userinfo",
 			"style": {
@@ -174,7 +178,19 @@
 				"navigationBarTitleText": "商品列表"
 			}
 		}
-	],
+        ,{
+            "path" : "pages/feedback/feedback",
+            "style" : {
+				"navigationBarTitleText": "意见反馈"
+			}
+        }
+        ,{
+            "path" : "pages/scan/scan",
+            "style" : {
+				"navigationBarTitleText": "scanCode"
+			}
+        }
+    ],
 	"globalStyle": {
 		"navigationBarTextStyle": "black",
 		"navigationBarTitleText": "uni-app",
