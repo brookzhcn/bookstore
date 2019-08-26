@@ -96,7 +96,7 @@
 				<list-cell icon="icon-shezhi1" iconColor="#e07472" title="设置" border="" @eventClick="navTo('/pages/set/set')"></list-cell>
 				<list-cell uniIconType="phone-filled" uniIconSize="23"  iconColor="#eb507e" title=" 绑定手机号" border="" @eventClick="navTo('/pages/authorize/authorize')"></list-cell>
 				<list-cell icon="icon-dizhi" iconColor="#eb507e" title="意见反馈" border="" @eventClick="navTo('/pages/feedback/feedback')"></list-cell>
-			
+				<list-cell uniIconType="scan" uniIconSize="20"  iconColor="#eb507e" title="扫一扫" border="" @eventClick="navTo('/pages/scan/scan')"></list-cell>
 			</view>
 		</view>
 

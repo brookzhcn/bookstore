@@ -184,6 +184,12 @@
 				"navigationBarTitleText": "意见反馈"
 			}
         }
+        ,{
+            "path" : "pages/scan/scan",
+            "style" : {
+				"navigationBarTitleText": "scanCode"
+			}
+        }
     ],
 	"globalStyle": {
 		"navigationBarTextStyle": "black",
