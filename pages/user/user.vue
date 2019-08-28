@@ -98,7 +98,8 @@
 				<list-cell uniIconType="chat" uniIconSize="18" iconColor="#eb507e" title="意见反馈" border="" @eventClick="navTo('/pages/feedback/feedback')"></list-cell>
 				<list-cell uniIconType="scan" uniIconSize="19"  iconColor="#eb507e" title="扫一扫" border="" @eventClick="navTo('/pages/scan/scan')"></list-cell>
 				<list-cell uniIconType="compose" uniIconSize="21"  iconColor="#eb507e" title="申请开票" border="" @eventClick="navTo('/pages/invoice/invoice')"></list-cell>
-				<list-cell uniIconType="info" uniIconSize="20"  iconColor="#eb507e" title="充值" border="" @eventClick="navTo('/pages/recharge/recharge')"></list-cell>
+				<list-cell uniIconType="bars" uniIconSize="21"  iconColor="#eb507e" title="开票记录" border="" @eventClick="navTo('/pages/invoice/list')"></list-cell>
+				<!-- <list-cell uniIconType="info" uniIconSize="20"  iconColor="#eb507e" title="充值" border="" @eventClick="navTo('/pages/recharge/recharge')"></list-cell> -->
 				<list-cell uniIconType="help" uniIconSize="20"  iconColor="#eb507e" title="关于我们" border="" @eventClick="aboutUs"></list-cell>
 				<list-cell uniIconType="spinner-cycle" uniIconSize="20"  iconColor="#eb507e" title="生成二维码" border="" @eventClick="navTo('/pages/qrcode/qrcode')"></list-cell>
 				<!-- <list-cell uniIconType="list" uniIconSize="21"  iconColor="#eb507e" title="开票记录" border="" @eventClick="navTo('/pages/invoice/list')"></list-cell> -->
