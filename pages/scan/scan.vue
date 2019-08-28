@@ -16,18 +16,15 @@
 
 
 <script>
-	Page({
-		onShareAppMessage() {
+	
+	export default {
+		data() {
 			return {
-				title: '扫码',
-				path: 'page/scan/scan'
-			}
+				
+			};
 		},
-
-		data: {
-			result: ''
-		},
-		methods: {
+		methods:{
+			
 			scanCode() {
 				console.log("scan code..")
 				const that = this
@@ -39,12 +36,10 @@
 					},
 					fail() {}
 				})
-			}
-
+			},
 		}
-
-
-	})
+	}
+	
 </script>
 
 <style>
