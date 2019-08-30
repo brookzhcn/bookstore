@@ -4,19 +4,21 @@
     <view class="picker">
       <view class="fb-type">
         <view class="type-label">{{array[index]}}</view>
-        <image class="type-icon" src="http://yanxuan.nosdn.127.net/hxm/yanxuan-wap/p/20161201/style/img/icon-normal/pickerArrow-a8b918f05f.png"/>
+        <image class="type-icon" src="/static/down-thin.png"/>
       </view>
     </view>
   </picker>
+  
   <view class="fb-body">
-    <textarea class="content" placeholder="对我们网站、商品、服务，你还有什么建议吗？你还希望在严选上买到什么？请告诉我们..." />
-    <view class="text-count">0/500</view>
+    <textarea class="content" placeholder="对我们网站、商品、服务，你还有什么建议吗? 请告诉我们..." />
   </view>
+  
   <view class="fb-mobile">
     <view class="label">手机号码</view>
     <view class="mobile-box">
       <input class="mobile" placeholder="方便我们与你联系" />
-      <image class="clear-icon" src="http://yanxuan.nosdn.127.net/hxm/yanxuan-wap/p/20161201/style/img/icon-normal/clear-fb-dd9d604f86.png"/>
+      <image class="clear-icon" src="/static/del.png"/>
+	   <!-- <button class='clear-btn' plain="true" hover-class="none" @click="clearMobileNumber"></button> -->
     </view>
   </view>
   <button class="fb-btn">提交</button>
@@ -24,7 +26,6 @@
 </template>
 
 <script>
-
 export default {
   data () {
     return {
@@ -33,25 +34,18 @@ export default {
     }
   },
   async mounted () {
-    // await Promise.all([
-    //   this.getAddressList()
-    // ])
+	  
   },
   methods: {
-    // 监听pick的修改
     bindPickerChange (e) {
-      // console.log('监听pick变化', e);
       this.index = e.target.value;
+    },
+   clearMobileNumber () {
+      this.setData({
+        inputTxt: ''
+      })
     }
-  },
-  // 原生的分享功能
-  onShareAppMessage: function () {
-    return {
-      title: '乌龟商店',
-      desc: '我在想这个页面真的需要写吗？',
-      path: '/pages/feedback/feedback'
-    }
-  }
+}
 }
 </script>
 
@@ -61,8 +55,8 @@ page{
     min-height: 100%;
 }
 picker{
-  width:92%;
-  margin-left:-55rpx;
+  width:100%;
+  margin-left:0rpx;
 }
 .container{
     background: #f4f4f4;
@@ -91,7 +85,7 @@ picker{
   width: 36rpx;
 }
 .fb-body{
-  width: 92%;
+  width: 100%;
   background: #fff;
   height: 374rpx;
   padding: 18rpx 30rpx 64rpx 30rpx;
@@ -163,5 +157,13 @@ picker{
   border-radius: 0;
   color: #fff;
   font-size: 28rpx;
+}
+.fb-mobile .clear-btn{
+  position: absolute;
+  right: 0rpx;
+  width: 200rpx;
+  height: 104rpx;
+  border-radius: 0 0;
+  border-color: white;
 }
 </style>

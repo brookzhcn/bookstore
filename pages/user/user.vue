@@ -94,9 +94,16 @@
 				<list-cell icon="icon-pinglun-copy" iconColor="#ee883b" title="晒单" tips="晒单抢红包"></list-cell>
 				<list-cell icon="icon-shoucang_xuanzhongzhuangtai" iconColor="#54b4ef" title="我的收藏" @eventClick="navTo('/pages/collection/collection')"></list-cell>
 				<list-cell icon="icon-shezhi1" iconColor="#e07472" title="设置" border="" @eventClick="navTo('/pages/set/set')"></list-cell>
-				<list-cell uniIconType="phone-filled" uniIconSize="23"  iconColor="#eb507e" title=" 绑定手机号" border="" @eventClick="navTo('/pages/authorize/authorize')"></list-cell>
-				<list-cell icon="icon-dizhi" iconColor="#eb507e" title="意见反馈" border="" @eventClick="navTo('/pages/feedback/feedback')"></list-cell>
-				<list-cell uniIconType="scan" uniIconSize="20"  iconColor="#eb507e" title="扫一扫" border="" @eventClick="navTo('/pages/scan/scan')"></list-cell>
+				<list-cell uniIconType="phone-filled" uniIconSize="21"  iconColor="#eb507e" title="绑定手机号" border="" @eventClick="navTo('/pages/authorize/authorize')"></list-cell>
+				<list-cell uniIconType="chat" uniIconSize="18" iconColor="#eb507e" title="意见反馈" border="" @eventClick="navTo('/pages/feedback/feedback')"></list-cell>
+				<list-cell uniIconType="scan" uniIconSize="19"  iconColor="#eb507e" title="扫一扫" border="" @eventClick="navTo('/pages/scan/scan')"></list-cell>
+				<list-cell uniIconType="compose" uniIconSize="21"  iconColor="#eb507e" title="申请开票" border="" @eventClick="navTo('/pages/invoice/invoice')"></list-cell>
+				<list-cell uniIconType="bars" uniIconSize="21"  iconColor="#eb507e" title="开票记录" border="" @eventClick="navTo('/pages/invoice/list')"></list-cell>
+				<!-- <list-cell uniIconType="info" uniIconSize="20"  iconColor="#eb507e" title="充值" border="" @eventClick="navTo('/pages/recharge/recharge')"></list-cell> -->
+				<list-cell uniIconType="help" uniIconSize="20"  iconColor="#eb507e" title="关于我们" border="" @eventClick="aboutUs"></list-cell>
+				<list-cell uniIconType="spinner-cycle" uniIconSize="20"  iconColor="#eb507e" title="生成二维码" border="" @eventClick="navTo('/pages/qrcode/qrcode')"></list-cell>
+				<!-- <list-cell uniIconType="list" uniIconSize="21"  iconColor="#eb507e" title="开票记录" border="" @eventClick="navTo('/pages/invoice/list')"></list-cell> -->
+				
 			</view>
 		</view>
 
@@ -159,7 +166,13 @@
 			...mapState(['hasLogin', 'userInfo'])
 		},
 		methods: {
-
+			aboutUs : function () {
+			   wx.showModal({
+			     title: '关于我们',
+			     content: '本系统是由xxx开发，祝大家使用愉快！',
+			     showCancel:false
+			   })
+			 },
 			/**
 			 * 统一跳转接口,拦截未登录路由
 			 * navigator标签现在默认没有转场动画，所以用view

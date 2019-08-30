@@ -10,7 +10,7 @@
 				}]"
 				:class="icon"
 			></text>
-			<uni-icon v-else-if="uniIconType" :type="uniIconType" :size="uniIconSize"></uni-icon>
+			<uni-icon v-else-if="uniIconType" :type="uniIconType" :size="uniIconSize" class="cell-icon yticon"></uni-icon>
 			<text class="cell-tit clamp">{{title}}</text>
 			<text v-if="tips" class="cell-tip">{{tips}}</text>
 			<text class="cell-more yticon"
