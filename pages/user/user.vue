@@ -101,13 +101,14 @@
 				<list-cell uniIconType="bars" uniIconSize="21"  iconColor="#eb507e" title="开票记录" border="" @eventClick="navTo('/pages/invoice/list')"></list-cell>
 				<!-- <list-cell uniIconType="info" uniIconSize="20"  iconColor="#eb507e" title="充值" border="" @eventClick="navTo('/pages/recharge/recharge')"></list-cell> -->
 				<list-cell uniIconType="help" uniIconSize="20"  iconColor="#eb507e" title="关于我们" border="" @eventClick="aboutUs"></list-cell>
+				<list-cell uniIconType="phone" uniIconSize="20"  title="联系客服" border="" @eventClick="makePhoneCall"></list-cell>
 				<list-cell uniIconType="spinner-cycle" uniIconSize="20"  iconColor="#eb507e" title="生成二维码" border="" @eventClick="navTo('/pages/qrcode/qrcode')"></list-cell>
+				<!-- <list-cell uniIconType="compose" uniIconSize="20"  title="签到" border="" @eventClick="navTo('/pages/sign/sign')"></list-cell> -->
 				<!-- <list-cell uniIconType="list" uniIconSize="21"  iconColor="#eb507e" title="开票记录" border="" @eventClick="navTo('/pages/invoice/list')"></list-cell> -->
 				
 			</view>
 		</view>
-
-
+		
 	</view>
 </template>
 <script>
@@ -129,6 +130,7 @@
 				coverTransform: 'translateY(0px)',
 				coverTransition: '0s',
 				moving: false,
+				servicePhoneNumber: '18851070553',
 			}
 		},
 		onLoad() {},
@@ -173,6 +175,21 @@
 			     showCancel:false
 			   })
 			 },
+			 makePhoneCall: function () {
+			     var that = this;
+			     wx.makePhoneCall({
+			       phoneNumber: that.servicePhoneNumber,
+			       success: function (res) { },
+			       fail: function (res) {
+			         wx.showModal({
+			           title: '呼叫失败',
+			           content: '请稍后再试',
+			           showCancel: false,
+			         })
+			       },
+			       complete: function (res) { },
+			     })
+			   },
 			/**
 			 * 统一跳转接口,拦截未登录路由
 			 * navigator标签现在默认没有转场动画，所以用view
