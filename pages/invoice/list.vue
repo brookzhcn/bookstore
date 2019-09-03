@@ -32,20 +32,16 @@
 		},
 		methods: {
 			onShow: function () {
-			  const _this = this
+			  const that = this
 			  AUTH.checkHasLogined().then(isLogined => {
 			    if (isLogined) {
 			      WXAPI.invoiceList({
 			        token: wx.getStorageSync('token')
 			      }).then(res => {
 			        if (res.code == 0) {
-			          _this.setData({
-			            invoiceList: res.data.result
-			          })
+			            invoiceList: res.result
 			        } else {
-			          _this.setData({
 			            invoiceList: []
-			          })
 			        }
 			      })
 			    } else {
