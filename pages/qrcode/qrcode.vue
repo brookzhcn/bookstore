@@ -75,6 +75,7 @@ export default {
 		  // this.setData() ({
 		  //   text: this.inputValue
 		  // })
+		  this.text =  this.inputValue
 		  console.log("1")
 		  this.draw()
 		  console.log(this.inputValue)

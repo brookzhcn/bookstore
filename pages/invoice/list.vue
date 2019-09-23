@@ -21,8 +21,13 @@
 </template>
 
 <script>
-	const WXAPI = require('../../wxapi/main')
-	const AUTH = require('../../utils/auth')
+	// const WXAPI = require('../../wxapi/main')
+	// const AUTH = require('../../utils/auth')
+	// import WXAPI from '../../wxapi/main.js';
+	// import AUTH from '../../utils/auth.js';
+	import {
+	    mapMutations  
+	} from 'vuex';
 	
 	export default {
 		data() {
@@ -31,38 +36,40 @@
 			}
 		},
 		methods: {
-			onShow: function () {
-			  const that = this
-			  AUTH.checkHasLogined().then(isLogined => {
-			    if (isLogined) {
-			      WXAPI.invoiceList({
-			        token: wx.getStorageSync('token')
-			      }).then(res => {
-			        if (res.code == 0) {
-			            invoiceList: res.result
-			        } else {
-			            invoiceList: []
-			        }
-			      })
-			    } else {
-			      wx.showModal({
-			        title: '提示',
-			        content: '本次操作需要您的登录授权',
-			        cancelText: '暂不登录',
-			        confirmText: '前往登录',
-			        success(res) {
-			          if (res.confirm) {
-			            wx.switchTab({
-			              url: "/pages/user/user"
-			            })
-			          } else {
-			            wx.navigateBack()
-			          }
-			        }
-			      })
-			    }
-			  })
-			},
+			...mapMutations(['logout']),
+			
+			// onShow: function () {
+			//   const that = this
+			//   AUTH.checkHasLogined().then(isLogined => {
+			//     if (isLogined) {
+			//       WXAPI.invoiceList({
+			//         token: wx.getStorageSync('token')
+			//       }).then(res => {
+			//         if (res.code == 0) {
+			//             invoiceList: res.result
+			//         } else {
+			//             invoiceList: []
+			//         }
+			//       })
+			//     } else {
+			//       wx.showModal({
+			//         title: '提示',
+			//         content: '本次操作需要您的登录授权',
+			//         cancelText: '暂不登录',
+			//         confirmText: '前往登录',
+			//         success(res) {
+			//           if (res.confirm) {
+			//             wx.switchTab({
+			//               url: "/pages/user/user"
+			//             })
+			//           } else {
+			//             wx.navigateBack()
+			//           }
+			//         }
+			//       })
+			//     }
+			//   })
+			// },
 			
 		}
 	}

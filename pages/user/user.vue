@@ -101,7 +101,7 @@
 				<list-cell uniIconType="bars" uniIconSize="21"  iconColor="#eb507e" title="开票记录" border="" @eventClick="navTo('/pages/invoice/list')"></list-cell>
 				<!-- <list-cell uniIconType="info" uniIconSize="20"  iconColor="#eb507e" title="充值" border="" @eventClick="navTo('/pages/recharge/recharge')"></list-cell> -->
 				<list-cell uniIconType="help" uniIconSize="20"  iconColor="#eb507e" title="关于我们" border="" @eventClick="aboutUs"></list-cell>
-				<list-cell uniIconType="phone" uniIconSize="20"  title="联系客服" border="" @eventClick="makePhoneCall"></list-cell>
+				<list-cell uniIconType="phone" uniIconSize="20"  iconColor="#eb507e" title="联系客服" border="" @eventClick="makePhoneCall"></list-cell>
 				<list-cell uniIconType="spinner-cycle" uniIconSize="20"  iconColor="#eb507e" title="生成二维码" border="" @eventClick="navTo('/pages/qrcode/qrcode')"></list-cell>
 				<!-- <list-cell uniIconType="compose" uniIconSize="20"  title="签到" border="" @eventClick="navTo('/pages/sign/sign')"></list-cell> -->
 				<!-- <list-cell uniIconType="list" uniIconSize="21"  iconColor="#eb507e" title="开票记录" border="" @eventClick="navTo('/pages/invoice/list')"></list-cell> -->
