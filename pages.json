@@ -213,6 +213,12 @@
             "style" : {
 				"navigationBarTitleText": "在线充值"}
         }
+        ,{
+            "path" : "pages/clinic/clinic",
+            "style" : {
+				"navigationBarTitleText": "诊所预约"
+			}
+        }
     ],
 	"globalStyle": {
 		"navigationBarTextStyle": "black",
@@ -238,10 +244,10 @@
 				"text": "分类"
 			},
 			{
-				"pagePath": "pages/cart/cart",
-				"iconPath": "static/tab-cart.png",
-				"selectedIconPath": "static/tab-cart-current.png",
-				"text": "购物车"
+				"pagePath": "pages/clinic/clinic",
+				"iconPath": "static/tab-clinic.png",
+				"selectedIconPath": "static/tab-clinic-current.png",
+				"text": "诊所预约"
 			},
 			{
 				"pagePath": "pages/user/user",

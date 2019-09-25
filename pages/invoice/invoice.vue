@@ -109,7 +109,7 @@
 			}
 			if (!mobile) {
 			  wx.showToast({
-				title: '请填写您在工厂注册的手机号码',
+				title: '请填写您的手机号码',
 				icon: 'none'
 			  })
 			  return

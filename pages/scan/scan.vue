@@ -4,7 +4,7 @@
 			<view class="weui-cells__title">扫码结果</view>
 			<view class="weui-cells weui-cells_after-title">
 				<view class="weui-cell">
-					<view class="weui-cell__bd">{{result}}</view>
+					<view class="weui-cell__bd">{{ result }}</view>
 				</view>
 			</view>
 			<view class="btn-area">
@@ -20,19 +20,24 @@
 	export default {
 		data() {
 			return {
-				
+				result: '1'
 			};
 		},
+		onShareAppMessage() {
+		  return {
+		    title: '扫码',
+		    path: 'page/scan-code/scan-code'
+		  }
+		},
 		methods:{
-			
 			scanCode() {
+				var _this = this;
 				console.log("scan code..")
-				const that = this
 				wx.scanCode({
-					success(res) {
-						that.setData({
-							result: res.result
-						})
+					success: function (res) {
+						console.log(res.result);
+						_this.result = res.result;
+						console.log(res.result);
 					},
 					fail() {}
 				})

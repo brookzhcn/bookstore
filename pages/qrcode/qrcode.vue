@@ -11,17 +11,17 @@
 	</view>
 	<view class="item">
 	  <button type="default" @click="download">下载</button>
-	  <button type="default" @click="repaint">设置x,y</button>
+	  <!-- <button type="default" @click="repaint">设置x,y</button> -->
 	  <button type="default" @click="getBase64Data">base64</button>
 	</view>
 	<view class="round left"></view>
 	<view class="round right"></view>
-	<view class="intro item">
+<!-- 	<view class="intro item">
 	  <view class="title">说明：</view>
 	  <view>1. 可自定义canvas宽高。</view>
 	  <view>2. 支持修改二维码的计算模式、纠错级别、背景色、前景色。</view>
 	  <view>3. 更多详细说明，请参考项目README。</view>
-	</view>
+	</view> -->
   </view>
 </view>
 </template>
@@ -48,7 +48,7 @@ export default {
 		  typeNumber: 10,
 		  text: this.text,
 		  image: {
-		    imageResource: '../../static/icon.png',
+		    imageResource: '../../static/icon1.png',
 		    dx: 70,
 		    dy: 70,
 		    dWidth: 60,
@@ -75,6 +75,7 @@ export default {
 		  // this.setData() ({
 		  //   text: this.inputValue
 		  // })
+		  this.text =  this.inputValue
 		  console.log("1")
 		  this.draw()
 		  console.log(this.inputValue)
@@ -96,7 +97,7 @@ export default {
 		    typeNumber: 10,
 		    text: this.inputValue,
 		    image: {
-		      imageResource: '../../static/icon.png',
+		      imageResource: '../../static/icon1.png',
 		      dx: 70,
 		      dy: 70,
 		      dWidth: 60,

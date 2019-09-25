@@ -58,7 +58,8 @@
         "usingComponents" : true,
         "appid" : "wxd26d7bc19ab9f02c",
         "setting" : {
-            "urlCheck" : true
+            "urlCheck" : true,
+            "minified" : true
         }
     }
 }
