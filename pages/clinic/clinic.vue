@@ -9,20 +9,19 @@
       </div>
       <div class="category-list">
         <div class="filter-bar">
-          <div class="item" v-for="(item,index) in filterList" :key="index">
+			<button class='item' @click="sortedshopidList">综合排序</button>
+			<button class='item' @click="sortedshopListreverse">评分最低</button>
+			<button class='item' @click="sortedshopList">评分最高</button>
             <span>{{item.title}}</span>
+          <!-- <div class="item" v-for="(item,index) in filterList" :key="index" >
             <i class="icon" :class='item.icon'></i>
-          </div>
+          </div> -->
         </div>
         <div class="item-list">
-       <!--   <div class="item-h">
-            <div class="item" v-for="(item,index) in tags" :key="index">
-              <span>{{item}}</span>
-            </div>
-          </div> -->
+   
           <div class="item-b" v-for="(item,index) in shopList" :key="index" @click="shoppingCartClick">
             <div class="item-l">
-              <img :src="item.pic_url" alt="">
+              <img :src="item.pic_url" >
               <!-- <img class="tag" :src="item.poi_promotion_pic" alt=""> -->
             </div>
             <div class="item-r">
@@ -61,13 +60,18 @@
               </div>
               <div class="activi-c">
                 <div class="ac-item" v-for="(itm,idx) in item.discounts2" :key="idx">
-                  <div class="ac">
+                  <div class="ac"  v-if="hasLogin === true">
                     <img class="ac-l" :src="itm.icon_url" alt="">
                     <span class="ac-r">{{itm.info}}</span>
+				  </div>
+				  <div class="ac"  v-else-if="hasLogin === false">
+				  </div>
                   </div>
                 </div>
               </div>
             </div>
+			
+			
           </div>
         </div>
       </div>
@@ -76,60 +80,123 @@
 </template>
 
 <script>
-import {homeData} from './data'
+import {mapState} from 'vuex';
+import {homeData} from './data';
 export default {
   data(){
     return{
-      categoryArr: [{items: []},{items:[]}],
-      topBannerData: [],
-      bottomBanner: {},
+	  orderType:0,
       shopList: [],
       filterList: [
        {
         title: '综合排序',
-        icon: 'mt-arrow-down-o'
        },
        {
          title: '距离最近'
        },
-       // {
-       //   title: '速度最快'
-       // },
-       {
-         title: '筛选',
-         icon: 'mt-filter-o'
-       }
       ],
-      // tags: ['满减优惠','点评最高','新商家','美团专送'],
-      // stars: [1,2,3,4,5]
+	  filterListChecked:[],
+	  filterArr:[],
+      stars: [1,2,3,4,5]
     }
   },
+  computed: {
+  	...mapState(['hasLogin']),
+	// sortedshopList: function() {
+	// 	if(orderType){
+	// 		shopList.sort(function(a,b){
+	// 			if(orderType===1){
+	// 				return b.wm_poi_score-b.wm_poi_score;
+	// 			}else{
+	// 				return a.wm_poi_score-b.wm_poi_score;
+	// 			}
+	// 		})
+	// }
+	// return shopList;
+	// }
+	
+	// sortedshopList: function() {
+	// 	function compare(a, b) {
+	// 	if (a.wm_poi_score < b.wm_poi_score)
+	// 		return 1;
+	// 	if (a.wm_poi_score > b.wm_poi_score)
+	// 		return -1;
+	// 	return 0;
+	// }
+	// 	return this.shopList.sort(compare);
+	// },
+	// 
+	
+	// filtershop(){
+	// 	
+	// filterArr = shopList
+	// 	
+	// if(orderType) {
+	// 	  filterArr.sort(function (p1, p2) {
+	// 		if(orderType === 1) { 
+	// 		  return p2.wm_poi_score - p1.wm_poi_score;
+	// 		} else { 
+	// 		  return p1.wm_poi_score - p2.wm_poi_score;
+	// 		}
+	// 	  })
+	// 	  return filterArr;
+	// 	}
+	// },	
+	
+	
+	// sortshoplistreverse: function() {
+	// 	function compare(a,b) {
+	// 		if (a.wm_poi_score < b.wm_poi_score)
+	// 			return -1;
+	// 		if (a.wm_poi_score > b.wm_poi_score)
+	// 			return 1;
+	// 		return 0;
+	// 	}
+	// 	return this.filterListCheckedreverse.sort(compare);
+	// },
+	
+  },
   mounted(){
-    // console.log(homeData.headData.data.primary_filter);
-    let categoryData = homeData.headData.data.primary_filter;
-    categoryData.map((item,index)=>{
-      if(index<10){
-        this.categoryArr[0].items.push(item)
-      }else{
-        this.categoryArr[1].items.push(item)
-      }
-    })
-    // console.log(this.categoryArr);
-    this.topBannerData = homeData.topBannerData.data.top_banner_list
-    this.bottomBanner = homeData.bannerData.data.rcmd_board_v9.mid_ad_banner.platinum_banner
-    console.log(homeData.homeList.data.poilist);
     this.shopList = homeData.homeList.data.poilist
   },
   methods: {
-    // categoryClick(){
-    //   wx.navigateTo({
-    //     url: '/pages/categoryList/main'
-    //   })
-    // },
     shoppingCartClick() {
-      wx.navigateTo({url: '/pages/shoppingCart/main'})
-    }
-  }
+      wx.navigateTo({url: '/pages/shoppingcart/shoppingcart'})
+    },
+	setOrderType() {
+		this.orderType = orderType
+	},
+	sortedshopList: function() {
+		function compare(a, b) {
+		if (a.wm_poi_score < b.wm_poi_score)
+			return 1;
+		if (a.wm_poi_score > b.wm_poi_score)
+			return -1;
+		return 0;
+	}
+		return this.shopList.sort(compare);
+	},
+	sortedshopListreverse: function() {
+		function compare(a, b) {
+		if (a.wm_poi_score < b.wm_poi_score)
+			return -1;
+		if (a.wm_poi_score > b.wm_poi_score)
+			return 1;
+		return 0;
+	}
+		return this.shopList.sort(compare);
+	},
+	sortedshopidList: function() {
+		function compare(a, b) {
+		if (a.id < b.id)
+			return -1;
+		if (a.id > b.id)
+			return 1;
+		return 0;
+	}
+		return this.shopList.sort(compare);
+	}
+  },
 }
 </script>
 

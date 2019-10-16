@@ -219,6 +219,12 @@
 				"navigationBarTitleText": "诊所预约"
 			}
         }
+        ,{
+            "path" : "pages/shoppingcart/shoppingcart",
+            "style" : {
+				"navigationBarTitleText": "诊所详情"
+			}
+        }
     ],
 	"globalStyle": {
 		"navigationBarTextStyle": "black",

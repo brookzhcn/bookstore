@@ -106,7 +106,7 @@ const homeData = {
           "info": "门诊医疗服务整单9折（药品、血液、耗材、齿科、眼科无折扣）",
           "promotion_type": 2
         }],
-        "distance": "距离5.76km",
+        "distance": "5.76km",
         "distance_display_control": 0,
         "id": 470871157360624,
         "insurance_icon": "",
