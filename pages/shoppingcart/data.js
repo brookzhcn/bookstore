@@ -169,7 +169,6 @@ const shoppingCart = {
           "info": "本店新用户立减1元, 新用户立减17元"
         }],
         "poi_back_pic_url": "http://p0.meituan.net/aichequan/0db65652de81b2140a9eb6c2183f3296361823.png",
-        "min_price_tip": "起送 ¥18",
         "poi_coupon": {
           "coupon_list": []
         },
@@ -193,7 +192,6 @@ const shoppingCart = {
         "bulletin": "上海艾儿贝佳妇产科医院参照DNV国际医院标准建设，医院开展妇科、产科、计划生育科、生殖健康与不孕症科、中医妇科、中西医结合科、泌尿外科、妇科疾病筛查、孕前优生健康检查等医疗服务，与各大国际保险公司建立了直接付费关系。艾儿贝佳医疗团队的组建坚持高标准，注重人才梯队建设，主管以上医疗人才大多来自于上海各大三甲医院的中青年骨干，形成了一支结构合理的医疗人才梯队。同时，艾儿贝佳妇产科医院聘请上海众多三甲医院妇产科、新生儿科专家来医院看诊、会诊或手术",
         "latitude": 0,
         "delivery_type": 0,
-        "delivery_time_tip": "33分钟",
         "buz_menu_tip": "菜单",
         "poi_insurances": [],
         "poi_sell_status": 1,
@@ -309,12 +307,8 @@ const shoppingCart = {
         "product_count": 0,
         "description": "",
         "sequence": 0,
+		"id": 0,
         "name": " 发育科",
-        "activity_info": {
-          "icon_url": "",
-          "scheme_url": "",
-          "activity_text": ""
-        },
         "spus": [{
           "log_field": {
             "recommend_label_type": 0,
@@ -428,12 +422,8 @@ const shoppingCart = {
         "product_count": 13,
         "description": "超过限购份数可原价购买",
         "sequence": 1,
+		"id": 1,
         "name": "新生儿科",
-        "activity_info": {
-          "icon_url": "",
-          "scheme_url": "",
-          "activity_text": ""
-        },
         "spus": [{
           "log_field": {
             "recommend_label_type": 0,
@@ -477,11 +467,12 @@ const shoppingCart = {
           "realStatus": 0,
           "promotion_info": "9.33折",
           "virtualStatus": 0,
-          "picture": "http://p0.meituan.net/wmproduct/4d84237d5ee088923322e117db816aaa2140995.jpg",
+          "picture": "/static/doctor2.png",
           "unit": "份",
           "tread_num": 1,
           "shippingTimeX": "",
           "sequence": 0,
+		  "id": 0,
           "status_remind_list": [],
           "product_label_picture": "",
           "skus": [{
@@ -543,12 +534,8 @@ const shoppingCart = {
         "product_count": 10,
         "description": "",
         "sequence": 2,
+		"id": 2,
         "name": "皮肤科",
-        "activity_info": {
-          "icon_url": "",
-          "scheme_url": "",
-          "activity_text": ""
-        },
         "spus": [{
           "log_field": {
             "recommend_label_type": 0,
@@ -592,11 +579,11 @@ const shoppingCart = {
           "realStatus": 0,
           "promotion_info": "",
           "virtualStatus": 0,
-          "picture": "http://p1.meituan.net/wmproduct/02e61146a7e9cca924347b7280815c4a352861.jpg",
+          "picture": "/static/doctor3.png",
           "unit": "份",
           "tread_num": 1,
           "shippingTimeX": "",
-          "sequence": 0,
+          // "sequence": 0,
           "status_remind_list": [],
           "product_label_picture": "",
           "skus": [{
@@ -658,12 +645,8 @@ const shoppingCart = {
         "product_count": 5,
         "description": "",
         "sequence": 3,
+		"id": 3,
         "name": "儿内科",
-        "activity_info": {
-          "icon_url": "",
-          "scheme_url": "",
-          "activity_text": ""
-        },
         "spus": [{
           "log_field": {
             "recommend_label_type": 0,
@@ -673,7 +656,7 @@ const shoppingCart = {
           "status_description": "",
           "tag": "61355880",
           "recommend_description": "",
-          "month_saled_content": "月售1",
+          "month_saled_content": "周一、周四、周五、周日全天",
           "promotion": {
             "height": 0,
             "width": 0,
@@ -693,7 +676,7 @@ const shoppingCart = {
               "discount": 1.0
             }
           },
-          "name": "备注需求，请写三遍哦，重要的事情说三遍哟",
+          "name": "方凤",
           "praise_num": 0,
           "activity_type": 0,
           "praise_content": "赞0",
@@ -707,11 +690,11 @@ const shoppingCart = {
           "realStatus": 0,
           "promotion_info": "",
           "virtualStatus": 0,
-          "picture": "http://p1.meituan.net/wmproduct/df220e91c9b8692daf499c31f28488f4344882.jpg",
+          "picture": "/static/doctor4.png",
           "unit": "份",
           "tread_num": 0,
           "shippingTimeX": "",
-          "sequence": 0,
+          // "sequence": 0,
           "status_remind_list": [],
           "product_label_picture": "",
           "skus": [{
@@ -773,12 +756,8 @@ const shoppingCart = {
         "product_count": 11,
         "description": "",
         "sequence": 4,
+		"id": 4,
         "name": "呼吸/咳喘",
-        "activity_info": {
-          "icon_url": "",
-          "scheme_url": "",
-          "activity_text": ""
-        },
         "spus": [{
           "log_field": {
             "recommend_label_type": 0,
@@ -788,7 +767,7 @@ const shoppingCart = {
           "status_description": "",
           "tag": "61345968",
           "recommend_description": "",
-          "month_saled_content": "月售0",
+          "month_saled_content": "周一上午、周二上午、周四上午",
           "promotion": {
             "height": 0,
             "width": 0,
@@ -800,7 +779,7 @@ const shoppingCart = {
           "food_label_text": "",
           "id": 1009949719,
           "min_price": 0.0,
-          "description": "",
+          "description": "执行院长/主治医生",
           "attrs": [],
           "activity_policy": {
             "discount_by_count": {
@@ -808,7 +787,7 @@ const shoppingCart = {
               "discount": 1.0
             }
           },
-          "name": "亲，薯条外卖送餐时间较长，口感可能会受到影响，望见谅！",
+          "name": "鲍一笑",
           "praise_num": 0,
           "activity_type": 0,
           "praise_content": "赞0",
@@ -822,7 +801,7 @@ const shoppingCart = {
           "realStatus": 0,
           "promotion_info": "",
           "virtualStatus": 0,
-          "picture": "http://p0.meituan.net/wmproduct/c9afad85fcae46deffcbc1d218eb26bd181389.jpg",
+          "picture": "/static/doctor5.png",
           "unit": "份",
           "tread_num": 0,
           "shippingTimeX": "",
@@ -2032,330 +2011,6 @@ const shoppingCart = {
         "user_poi_comment_num": 1,
         "user_type": 0,
         "wm_comment_id": 2035252988
-      }, {
-        "add_comment_list": [],
-        "buz_code": 0,
-        "can_additional": 1,
-        "comment": "你开玩笑？我点了两份去骨鸡柳，你就送了一份。什么意思？",
-        "comment_labels": [{
-          "content": "快速准时",
-          "label_type": 1
-        }],
-        "comment_pics": [{
-          "thumbnail_url": "",
-          "url": "http://p0.meituan.net/wmcomment/533b71d769fe5336f210ad7379b305c0257846.jpg"
-        }],
-        "comment_scheme": [],
-        "comment_source_tip": "",
-        "comment_source_type": 3,
-        "comment_time": 1537459200,
-        "comment_type": 4,
-        "critic_food_tip": "香辣鸡排+无骨鸡柳+黑椒鸡块+饮料,无骨鸡柳",
-        "delivery_comment_score": 0,
-        "delivery_name": "",
-        "delivery_type": 0,
-        "disable_additional_msg": "",
-        "food_comment_score": 0,
-        "has_add_comment": false,
-        "high_quality": 0,
-        "is_anonymous": 1,
-        "is_dp": 0,
-        "is_picture_audited": false,
-        "order_comment_score": 1,
-        "order_detail": {
-          "order_detail_list": [],
-          "order_view_id": 0,
-          "total_price": 0.0
-        },
-        "order_time": 1537459200,
-        "order_type": 1,
-        "pack_score": 0,
-        "poi_id": 0,
-        "poi_reply_contents": "",
-        "praise_food_list": [],
-        "praise_food_tip": "",
-        "quality_score": 0,
-        "scheme": "",
-        "ship_score": 0.0,
-        "ship_time": 31,
-        "user_id": 0,
-        "user_name": "匿名用户",
-        "user_pic_url": "",
-        "user_poi_comment_num": 1,
-        "user_type": 0,
-        "wm_comment_id": 2048506232
-      }, {
-        "add_comment_list": [{
-          "content": "抱歉，漏送是我们不对，下次备注一下为您补发一份，真心抱歉",
-          "desc": "商家回复(1天后)",
-          "time": 1536890262,
-          "type": 2
-        }],
-        "buz_code": 0,
-        "can_additional": 1,
-        "comment": "甜奶呢？其他都好，就是少东西",
-        "comment_labels": [{
-          "content": "礼貌热情",
-          "label_type": 1
-        }],
-        "comment_pics": [{
-          "thumbnail_url": "",
-          "url": "http://p0.meituan.net/wmcomment/89dc6a29d4cb66b30dfedf4c22f7490d85298.jpg"
-        }],
-        "comment_scheme": [{
-          "keyword": "甜奶",
-          "scheme_url": "meituanwaimai://waimai.meituan.com/detail?buztype=0&spuid=747120862&wmpoiid=470871157426160&sputag=&activitytag=&sku_id=974344525",
-          "sku_id": 974344525,
-          "spu_id": 747120862
-        }],
-        "comment_source_tip": "",
-        "comment_source_type": 3,
-        "comment_time": 1536768000,
-        "comment_type": 4,
-        "critic_food_tip": "",
-        "delivery_comment_score": 0,
-        "delivery_name": "",
-        "delivery_type": 0,
-        "disable_additional_msg": "",
-        "food_comment_score": 0,
-        "has_add_comment": false,
-        "high_quality": 0,
-        "is_anonymous": 0,
-        "is_dp": 0,
-        "is_picture_audited": false,
-        "order_comment_score": 3,
-        "order_detail": {
-          "order_detail_list": [],
-          "order_view_id": 0,
-          "total_price": 0.0
-        },
-        "order_time": 1536768000,
-        "order_type": 1,
-        "pack_score": 0,
-        "poi_id": 0,
-        "poi_reply_contents": "抱歉，漏送是我们不对，下次备注一下为您补发一份，真心抱歉",
-        "praise_food_list": [],
-        "praise_food_tip": "",
-        "quality_score": 0,
-        "scheme": "",
-        "ship_score": 0.0,
-        "ship_time": 42,
-        "user_id": 230794447,
-        "user_name": "Vmz729512894",
-        "user_pic_url": "https://img.meituan.net/avatar/3154b744737f2a2af25e4bab07a173e736444.jpg",
-        "user_poi_comment_num": 1,
-        "user_type": 0,
-        "wm_comment_id": 2031430217
-      }, {
-        "add_comment_list": [{
-          "content": "亲爱的顾客，十分抱歉本次的服务没有让您获得最佳体验，我们会不断改善服务，期待您的再次惠顾！",
-          "desc": "商家回复(2天后)",
-          "time": 1537066411,
-          "type": 2
-        }],
-        "buz_code": 0,
-        "can_additional": 1,
-        "comment": "老北京鸡肉卷没吃就老北京味。。。感觉和墨西哥鸡肉卷一个味。鸡柳非常难吃，非常。鸡排还可以。",
-        "comment_labels": [{
-          "content": "货品完好",
-          "label_type": 1
-        }],
-        "comment_pics": [],
-        "comment_scheme": [{
-          "keyword": "无骨鸡柳",
-          "scheme_url": "meituanwaimai://waimai.meituan.com/detail?buztype=0&spuid=747118877&wmpoiid=470871157426160&sputag=&activitytag=&sku_id=1124829081",
-          "sku_id": 1124829081,
-          "spu_id": 747118877
-        }, {
-          "keyword": "正新鸡排（甘梅味）",
-          "scheme_url": "meituanwaimai://waimai.meituan.com/detail?buztype=0&spuid=750769349&wmpoiid=470871157426160&sputag=&activitytag=&sku_id=813765053",
-          "sku_id": 813765053,
-          "spu_id": 750769349
-        }, {
-          "keyword": "老北京鸡肉卷",
-          "scheme_url": "meituanwaimai://waimai.meituan.com/detail?buztype=0&spuid=747128142&wmpoiid=470871157426160&sputag=&activitytag=&sku_id=809821936",
-          "sku_id": 809821936,
-          "spu_id": 747128142
-        }],
-        "comment_source_tip": "",
-        "comment_source_type": 3,
-        "comment_time": 1536854400,
-        "comment_type": 4,
-        "critic_food_tip": "无骨鸡柳",
-        "delivery_comment_score": 0,
-        "delivery_name": "",
-        "delivery_type": 0,
-        "disable_additional_msg": "",
-        "food_comment_score": 0,
-        "has_add_comment": false,
-        "high_quality": 0,
-        "is_anonymous": 0,
-        "is_dp": 0,
-        "is_picture_audited": false,
-        "order_comment_score": 3,
-        "order_detail": {
-          "order_detail_list": [],
-          "order_view_id": 0,
-          "total_price": 0.0
-        },
-        "order_time": 1536854400,
-        "order_type": 1,
-        "pack_score": 0,
-        "poi_id": 0,
-        "poi_reply_contents": "亲爱的顾客，十分抱歉本次的服务没有让您获得最佳体验，我们会不断改善服务，期待您的再次惠顾！",
-        "praise_food_list": [{
-          "name": "正新鸡排（甘梅味）",
-          "schema_uri": "meituanwaimai://waimai.meituan.com/detail?buztype=0&spuid=750769349&wmpoiid=470871157426160&sputag=&activitytag=&sku_id=813765053"
-        }, {
-          "name": "老北京鸡肉卷",
-          "schema_uri": "meituanwaimai://waimai.meituan.com/detail?buztype=0&spuid=747128142&wmpoiid=470871157426160&sputag=&activitytag=&sku_id=809821936"
-        }],
-        "praise_food_tip": "正新鸡排（甘梅味）,老北京鸡肉卷",
-        "quality_score": 0,
-        "scheme": "",
-        "ship_score": 0.0,
-        "ship_time": 33,
-        "user_id": 6358760,
-        "user_name": "fancy0104",
-        "user_pic_url": "https://img.meituan.net/avatar/15d36659cfdff1b4412fac91e904cf4e33310.jpg",
-        "user_poi_comment_num": 1,
-        "user_type": 0,
-        "wm_comment_id": 2033508380
-      }, {
-        "add_comment_list": [{
-          "content": "抱歉，下次一定注意，甜奶热的口感更好哦",
-          "desc": "商家回复(1天后)",
-          "time": 1536890308,
-          "type": 2
-        }],
-        "buz_code": 0,
-        "can_additional": 1,
-        "comment": "大哥我也是服了，我备注了三遍凉的牛奶，还是热的，能长点心吗",
-        "comment_labels": [{
-          "content": "礼貌热情",
-          "label_type": 1
-        }, {
-          "content": "快速准时",
-          "label_type": 1
-        }, {
-          "content": "货品完好",
-          "label_type": 1
-        }, {
-          "content": "风雨无阻",
-          "label_type": 1
-        }, {
-          "content": "穿戴工服",
-          "label_type": 1
-        }, {
-          "content": "仪表整洁",
-          "label_type": 1
-        }],
-        "comment_pics": [],
-        "comment_scheme": [],
-        "comment_source_tip": "",
-        "comment_source_type": 3,
-        "comment_time": 1536768000,
-        "comment_type": 4,
-        "critic_food_tip": "甜奶",
-        "delivery_comment_score": 0,
-        "delivery_name": "",
-        "delivery_type": 0,
-        "disable_additional_msg": "",
-        "food_comment_score": 0,
-        "has_add_comment": false,
-        "high_quality": 0,
-        "is_anonymous": 0,
-        "is_dp": 0,
-        "is_picture_audited": false,
-        "order_comment_score": 3,
-        "order_detail": {
-          "order_detail_list": [],
-          "order_view_id": 0,
-          "total_price": 0.0
-        },
-        "order_time": 1536768000,
-        "order_type": 1,
-        "pack_score": 0,
-        "poi_id": 0,
-        "poi_reply_contents": "抱歉，下次一定注意，甜奶热的口感更好哦",
-        "praise_food_list": [{
-          "name": "香辣鸡腿堡",
-          "schema_uri": "meituanwaimai://waimai.meituan.com/detail?buztype=0&spuid=747123773&wmpoiid=470871157426160&sputag=&activitytag=&sku_id=809829128"
-        }, {
-          "name": "牛肉堡",
-          "schema_uri": "meituanwaimai://waimai.meituan.com/detail?buztype=0&spuid=747120858&wmpoiid=470871157426160&sputag=&activitytag=&sku_id=809830064"
-        }],
-        "praise_food_tip": "香辣鸡腿堡,牛肉堡",
-        "quality_score": 0,
-        "scheme": "",
-        "ship_score": 0.0,
-        "ship_time": 31,
-        "user_id": 1420425413,
-        "user_name": "hja816427182",
-        "user_pic_url": "",
-        "user_poi_comment_num": 1,
-        "user_type": 0,
-        "wm_comment_id": 2031414781
-      }, {
-        "add_comment_list": [{
-          "content": "餐骑手给你送到了，你也确认收货了，然后又申请退款，餐也损失了，钱也退你了，请问这位亲，你还想要哪样呢",
-          "desc": "商家回复(1天后)",
-          "time": 1537253440,
-          "type": 2
-        }],
-        "buz_code": 0,
-        "can_additional": 1,
-        "comment": "11.31叫的 13点才送过来  要求退款 爱理不理 拒绝退款 美团客服退的款 🌚",
-        "comment_labels": [{
-          "content": "配送慢",
-          "label_type": 2
-        }],
-        "comment_pics": [{
-          "thumbnail_url": "",
-          "url": "http://p0.meituan.net/wmcomment/e6d7dde08bc4d4bde342b878021627d711691.jpg"
-        }, {
-          "thumbnail_url": "",
-          "url": "http://p0.meituan.net/wmcomment/022022c557952c4294912251e29ae5c420962.jpg"
-        }],
-        "comment_scheme": [],
-        "comment_source_tip": "",
-        "comment_source_type": 3,
-        "comment_time": 1537113600,
-        "comment_type": 4,
-        "critic_food_tip": "",
-        "delivery_comment_score": 0,
-        "delivery_name": "",
-        "delivery_type": 0,
-        "disable_additional_msg": "",
-        "food_comment_score": 0,
-        "has_add_comment": false,
-        "high_quality": 0,
-        "is_anonymous": 1,
-        "is_dp": 0,
-        "is_picture_audited": false,
-        "order_comment_score": 1,
-        "order_detail": {
-          "order_detail_list": [],
-          "order_view_id": 0,
-          "total_price": 0.0
-        },
-        "order_time": 1537113600,
-        "order_type": 1,
-        "pack_score": 0,
-        "poi_id": 0,
-        "poi_reply_contents": "餐骑手给你送到了，你也确认收货了，然后又申请退款，餐也损失了，钱也退你了，请问这位亲，你还想要哪样呢",
-        "praise_food_list": [],
-        "praise_food_tip": "",
-        "quality_score": 0,
-        "scheme": "",
-        "ship_score": 0.0,
-        "ship_time": 88,
-        "user_id": 0,
-        "user_name": "匿名用户",
-        "user_pic_url": "",
-        "user_poi_comment_num": 1,
-        "user_type": 0,
-        "wm_comment_id": 2039360400
       }],
       "comments_dp": {
         "comment_score": 3.5,
@@ -2366,53 +2021,19 @@ const shoppingCart = {
         "total_count_desc": "13条到店评价",
         "wm_poi_id": 470871157426160
       },
-      "delivery_score": 4.8,
       "filter_type_num": 2188,
-      "food_score": 4.5,
       "friend_status_banner": {
         "bind_schema": "meituanwaimai://waimai.meituan.com/bindfriend?from=3",
         "friend_status": 1,
         "friend_status_tip": ""
       },
       "has_more": true,
-      "labels": [{
-        "content": "味道赞",
-        "label_count": 76,
-        "label_id": 75,
-        "label_star": 5
-      }, {
-        "content": "价格实惠",
-        "label_count": 16,
-        "label_id": 61,
-        "label_star": 5
-      }, {
-        "content": "满意",
-        "label_count": 14,
-        "label_id": 34,
-        "label_star": 5
-      }, {
-        "content": "包装好",
-        "label_count": 11,
-        "label_id": 29,
-        "label_star": 5
-      }, {
-        "content": "分量足",
-        "label_count": 9,
-        "label_id": 50,
-        "label_star": 5
-      }, {
-        "content": "推荐",
-        "label_count": 8,
-        "label_id": 36,
-        "label_star": 5
-      }],
-      "pack_score": 4.5,
-      "quality_score": 4.5,
       "scores": {
+		"delivery_score": 4.8,
+		"food_score": 4.5,  
+		"pack_score": 4.5,
+		"quality_score": 4.5,
         "comment_score": 0.0,
-        "delivery_score": 0.0,
-        "pack_score": 0.0,
-        "quality_score": 0.0,
         "show": 0
       }
     },

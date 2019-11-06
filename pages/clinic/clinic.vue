@@ -10,8 +10,8 @@
       <div class="category-list">
         <div class="filter-bar">
 			<button class='item' @click="sortedshopidList">综合排序</button>
-			<button class='item' @click="sortedshopListreverse">评分最低</button>
 			<button class='item' @click="sortedshopList">评分最高</button>
+			<button class='item' @click="sortedshopListreverse">评分最低</button>
             <span>{{item.title}}</span>
           <!-- <div class="item" v-for="(item,index) in filterList" :key="index" >
             <i class="icon" :class='item.icon'></i>

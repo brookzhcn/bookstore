@@ -19,185 +19,279 @@
           </div>
         </div>
       </div>
-      <div class="cate-c">
+	  
+ <!--     <div class="cate-c">
 		<span class="c-l" :style="{'font-weight': pageIndex === 0 ? 'bold' : null}" @click="menuClick">科室</span>
 		<span class="c-m" :style="{'font-weight': pageIndex === 1 ? 'bold' : null}" @click="commentClick">评价</span>
 		<span class="c-r" :style="{'font-weight': pageIndex === 2 ? 'bold' : null}" @click="shopClick">商家</span>
         <div class="line"></div>
-      </div>
-    </div>
-    <div class="list-c" v-if="pageIndex === 0">
-     <scroll-view class="list-l" :scroll-y="true">
-         <div class="l-item" :class="{active: index === tagIndex}" v-for="(item, index) in foods" :key="index" @click="categoryClick(item, index)">
-          <img :src="item.icon" alt="" v-if="item.icon != ''">
-          <span>{{item.name}}</span>
-          <text class="count" v-if="item.count > 0">{{item.count}}</text>
-        </div>
-      </scroll-view>
-      <scroll-view class="list-r" :scroll-y="true">
-        <div class="item-list" v-for="(item,index) in foods" :key="index">
-          <div class="section">
-            <span class="s-title">{{item.name}}</span>
-          </div>
-          <div class="item" v-for="(its,ids) in item.spus" :key="ids">
-            <div class="item-l"><img :src="its.picture" alt=""></div>
-            <div class="item-r">
-              <span class="r-title">{{its.name}}</span>
-              <span class="sub-title">{{its.description}}</span>
-              <span class="sale-num">{{its.month_saled_content}} {{its.praise_content}}</span>
-              <div class="r-t">
-                <span class="r-price">￥{{its.min_price}}</span>
-                <div class="sku" v-if="its.attrs.length">
-                  <span>选规格</span>
-                  <span class="count" v-if="its.sequence >0">{{its.sequence}}</span>
-                </div>
-                <div class="add-item" v-else>
-                  <div class="add-l" v-if="its.sequence>0" >
-                    <i class="icon mt-reduce-o"></i>
-                    <span>{{its.sequence}}</span>
-                  </div>
-                  <div class="add-r">
-                    <i class="icon mt-add-o"></i>
-                  </div>
-                </div>
-              </div>
-              <div class="tags-c">
-                <img class="tags" :src="itm.picture_url" v-for="(itm, idx) in its.product_label_picture_list" :key="idx">
-              </div>
-            </div>
-          </div>
-        </div>
-      </scroll-view>
-    </div>
-	
-	
-	<div class="comment-c" v-else-if="pageIndex === 1">
-      <scroll-view class="comment-sc" :scroll-y="true">
+      </div> -->
+	  
+	<van-tabs :active="active" >
+	  <van-tab title="科室">
+		  <div class="list-c" >
+			  
+			 <van-sidebar :active="active2"  @change="ontheChange">
+			   <van-sidebar-item title="发育科" />
+			   <van-sidebar-item title="新生儿科" />
+			   <van-sidebar-item title="皮肤科" />
+			   <van-sidebar-item title="儿内科" />
+			   <van-sidebar-item title="呼吸/咳嗽" />
+			 </van-sidebar>
+			  
+		<!--  <scroll-view class="list-l" :scroll-y="true">
+		      <div class="l-item" :class="{active: index === currentId}" v-for="(item, index) in foods" :key="index" @click="tabtap(item)">
+		  		 <span>{{item.name}}</span>
+		  	</div>
+		   </scroll-view> -->
+		   
+		  		 <!-- <view v-for="item in flist" :key="item.id" class="f-item b-b" :class="{active: item.id === currentId}" @click="tabtap(item)"> -->
+		        <!-- <img :src="item.icon" alt="" v-if="item.icon != ''"> -->
+		        
+		        <!-- <text class="count" v-if="item.count > 0">{{item.count}}</text> -->
+		        
+		    <scroll-view class="list-r" :scroll-y="true" :scroll-top="tabScrollTop">
+		      <div class="item-list" v-for="(item,index) in singleDoctor" :key="index">
+		        <div class="section">
+		          <span class="s-title">{{item.name}}</span>
+		        </div>
+		        <div class="item" v-for="(its,ids) in item.spus" :key="ids">
+		          <div class="item-l"><img :src="its.picture" alt=""></div>
+		          <div class="item-r">
+		            <span class="r-title">{{its.name}}</span>
+		            <span class="sub-title">{{its.description}}</span>
+		            <span class="sale-num">{{its.month_saled_content}} </span>
+		  		  </div>
+		  	  </div>
+		  	</div>
+		     </scroll-view>
+		  </div>
+	  </van-tab>
+	  <van-tab title="评价">
+		  <div class="comment-c" >
+		    <scroll-view class="comment-sc" :scroll-y="true">
+		  	<div class="comment-header">
+		        <div class="h-l">
+		          <span class="score">{{commentInfo.quality_score}}</span>
+		          <span class="title">诊所评分</span>
+		  			<!-- <uni-rate value="5" size="10"></uni-rate> -->
+		        </div>
+		        <div class="h-m">
+		          <div class="m-t">
+		            <span class="title">环境  </span>
+		  		  <uni-rate value="4" size="14"></uni-rate>
+		            <!-- <div class="star-c">
+		              <i class="icon mt-star-s" v-for="(itx, idx) in stars" :key="idx"></i>
+		            </div> -->
+		            <span class="score">{{commentInfo.food_score}}</span>
+		          </div>
+		          <div class="m-b">
+		            <span class="title">服务  </span>
+		  		  <uni-rate value="4" size="14"></uni-rate>
+		          <!--  <div class="star-c">
+		              <i class="icon mt-star-s" v-for="(itx, idx) in stars" :key="idx"></i>
+		            </div> -->
+		            <span class="score">{{commentInfo.pack_score}}</span>
+		          </div>
+		        </div>
+		        <!-- <div class="line"></div>
+		        <div class="h-r">
+		          <span class="score">{{commentInfo.delivery_score}}</span>
+		          <span class="title">配送评分</span>
+		        </div> -->
+		      </div>
+		  	<view class="divLine"></view>
 		  
-        <!-- <div class="comment-header"  v-for="(commentInfo,index) in comments" :key="index"> -->
-		<div class="comment-header">
-          <div class="h-l">
-            <span class="score">{{commentInfo.quality_score}}</span>
-            <span class="title">商家评分</span>
-          </div>
-          <div class="h-m">
-            <div class="m-t">
-              <span class="title">口味</span>
-              <div class="star-c">
-                <i class="icon mt-star-s" v-for="(itx, idx) in stars" :key="idx"></i>
-              </div>
-              <span class="score">{{commentInfo.food_score}}</span>
-            </div>
-            <div class="m-b">
-              <span class="title">包装</span>
-              <div class="star-c">
-                <i class="icon mt-star-s" v-for="(itx, idx) in stars" :key="idx"></i>
-              </div>
-              <span class="score">{{commentInfo.pack_score}}</span>
-            </div>
-          </div>
-          <!-- <div class="line"></div>
-          <div class="h-r">
-            <span class="score">{{commentInfo.delivery_score}}</span>
-            <span class="title">配送评分</span>
-          </div> -->
-        </div>
-        <!-- <div class="comment-tags">
-          <div class="tag-item" v-for="(item, index) in commentInfo.commentMolds" :key="index">
-            <span>{{item}}</span>
-          </div>
-        </div> -->
-        <div class="comment-list">
-          <div class="item-c" v-for="(item, index) in commentInfo.comments" :key="index">
-            <div class="item-l">
-              <img :src="item.user_pic_url.length > 0 ? item.user_pic_url : 'http://ovyjkveav.bkt.clouddn.com/18-9-26/85572180.jpg'">
-            </div>
-            <div class="item-r">
-              <div class="h-r">
-                <div class="r-t">
-                  <span class="name">{{item.user_name}}</span>
-                  <span class="date">{{item.comment_time}}</span>
-                </div>
-                <div class="r-b">
-                  <div class="b-l">
-                    <i class="icon mt-star-s" v-for="(itx, idx) in stars" :key="idx"></i>
-                  </div>
-                  <!-- <span class="b-r">{{item.ship_time}}分钟送达</span> -->
-                </div>
-              </div>
-              <div class="r-comtent">
-                <span>{{item.comment}}</span>
-              </div>
-              <div class="r-imgs">
-                <div class="single" v-if="item.comment_pics.length === 1">
-                  <img :src="itm.url" v-for="(itm, idx) in item.comment_pics" :key="idx">
-                </div>
-                <div class="double" v-if="item.comment_pics.length === 2 || item.comment_pics.length === 3">
-                  <img class="comment-img" :src="itm.url" v-for="(itm, idx) in item.comment_pics" :key="idx">
-                </div>
-                <div class="four" v-if="item.comment_pics.length === 4">
-                  <img class="comment-img" :src="itm.url" v-for="(itm, idx) in item.comment_pics" :key="idx">
-                </div>
-              </div>
-              <div class="reply-c" v-if="item.add_comment_list.length">
-                <span>{{item.poi_reply_contents}}</span>
-              </div>
-            </div>
-          </div>
-        </div>
-		
-      </scroll-view>
+		      <!-- <div class="comment-tags">
+		        <div class="tag-item" v-for="(item, index) in commentInfo.commentMolds" :key="index">
+		          <span>{{item}}</span>
+		        </div>
+		      </div> -->
+		      <div class="comment-list">
+		        <div class="item-c" v-for="(item, index) in comments" :key="index">
+		          <div class="item-l">
+		            <img :src="item.user_pic_url.length > 0 ? item.user_pic_url : '/static/touxiang.png'">
+		          </div>
+		          <div class="item-r">
+		            <div class="h-r">
+		              <div class="r-t">
+		                <span class="name">{{item.user_name}}</span>
+		                <span class="date">{{item.comment_time}}</span>
+		              </div>
+		              <div class="r-b">
+		                <!-- <div class="b-l"> -->
+		  				  <uni-rate value="4" size="14"></uni-rate>
+		                  <!-- <i class="icon mt-star-s" v-for="(itx, idx) in stars" :key="idx"></i> -->
+		                <!-- </div> -->
+		                <!-- <span class="b-r">{{item.ship_time}}分钟送达</span> -->
+		              </div>
+		            </div>
+		            <div class="r-comtent">
+		              <span>{{item.comment}}</span>
+		            </div>
+		  		  
+		            <div class="r-imgs">
+		              <div class="single" v-if="item.comment_pics.length === 1">
+		                <img :src="itm.url" v-for="(itm, idx) in item.comment_pics" :key="idx">
+		              </div>
+		              <div class="double" v-if="item.comment_pics.length === 2 || item.comment_pics.length === 3">
+		                <img class="comment-img" :src="itm.url" v-for="(itm, idx) in item.comment_pics" :key="idx">
+		              </div>
+		              <div class="four" v-if="item.comment_pics.length === 4">
+		                <img class="comment-img" :src="itm.url" v-for="(itm, idx) in item.comment_pics" :key="idx">
+		              </div>
+		            </div>
+		            <div class="reply-c" v-if="item.add_comment_list.length">
+		              <span>{{item.poi_reply_contents}}</span>
+		            </div>
+		          </div>
+		        </div>
+		      </div>
+		  	
+		    </scroll-view>
+		  </div>
+	  </van-tab>
+	  <van-tab title="商家">
+		  <div class="shop-info" >
+		        <div class="address">
+		          <i class="icon mt-location-o"></i>
+		          <span>上海市浦东新区滨江大道1616号</span>
+		          <i class="icon mt-phone-o"></i>
+		        </div>
+		        <div class="delivery">
+		          <div class="btm">
+		            <i class="icon mt-clock-s"></i>
+		            <span>预约电话：400 892 0288</span>
+		          </div>
+		        </div>
+		      </div>
+	  </van-tab>
+	</van-tabs>
+	
+    
+			  
+			  <!-- {{its.praise_content}} -->
+              <!-- <div class="r-t"> -->
+                <!-- <span class="r-price">￥{{its.min_price}}</span> -->
+                <!-- <div class="sku" v-if="its.attrs.length"> -->
+                  <!-- <span>选规格</span> -->
+                  <!-- <span class="count" v-if="its.sequence >0">{{its.sequence}}</span> -->
+                <!-- </div> -->
+                <!-- <div class="add-item" v-else> -->
+                  <!-- <div class="add-l" v-if="its.sequence>0" > -->
+                    <!-- <i class="icon mt-reduce-o"></i> -->
+                    <!-- <span>{{its.sequence}}</span> -->
+                  <!-- </div> -->
+                  <!-- <div class="add-r"> -->
+                    <!-- <i class="icon mt-add-o"></i> -->
+                  <!-- </div> -->
+                <!-- </div> -->
+              <!-- </div> -->
+
     </div>
-	
-	
-	
-	<div class="shop-info" v-else-if="pageIndex === 2">
-	      <div class="address">
-	        <i class="icon mt-location-o"></i>
-	        <span>上海市浦东新区滨江大道1616号</span>
-	        <i class="icon mt-phone-o"></i>
-	      </div>
-	      <div class="delivery">
-	        <div class="btm">
-	          <i class="icon mt-clock-s"></i>
-	          <span>预约电话：400 892 0288</span>
-	        </div>
-	      </div>
-	    </div>
-
-
   </div>
 </template>
 <script>
+import {uniRate} from "@/components/uni-rate/uni-rate.vue";
 import { mapState, mapActions, mapMutations, mapGetters } from "vuex";	
 import {shoppingCart} from './data'
 export default {
+   components:{
+		uniRate,
+	},
   data(){
     return {
+	  active: 0,
+	  active2: 0,
+	  sizeCalcState: false,
+	  tabScrollTop: 0,
+	  currentId: 1,
 	  tagIndex: 0,
 	  pageIndex: 0,
       shopinfo: {},
       discounts: {},
       foods: [],
+	  commentInfo: {},
+	  comments: [],
+	  number: 0,
+	  doctor: [],
     }
   },
   mounted(){
-    // console.log(shoppingCart.menuData);
     this.shopinfo = shoppingCart.menuData.data.poi_info
-    console.log(this.shopinfo);
     this.discounts = this.shopinfo.discounts2[0]
     this.foods = shoppingCart.menuData.data.food_spu_tags
-    console.log(this.foods);
+	this.commentInfo = shoppingCart.commentData.data.scores
+	this.comments = shoppingCart.commentData.data.comments
+	// console.log(this.comments);
   },
   computed: {
-	  
+	  singleDoctor: function() {
+		 console.log('active 2  '+ this.active2)
+		 var active2 = this.active2;
+		 var foods = this.foods;
+		 //return this.foods.slice(2,3)
+		 if (active2 === 0){
+			 return this.foods.slice(0,1)
+		 }else if (active2 === 1){
+			 return this.foods.slice(1,2)
+		 }else if (active2 === 2 ){
+			 return this.foods.slice(2,3)
+		 }else if (active2 === 3 ){
+			 return this.foods.slice(3,4)
+		 }else if (active2 === 4 ){
+			 return this.foods.slice(4,5)
+		 }
+		 
+		 // return this.foods.slice(2)
+		
+					 
+		 }
   },
   methods: {
-	  ...mapMutations("shoppingCart", ["changeReduceFeeDataMut", "changeSkuModalMut", "changeItemModalMut"]),
-	  ...mapActions("shoppingCart", ["getMenuDataAction", "getCommentDataAction", "getCategoryMenuDataAction", "addItemAction", "reduceItemAction", "closeShoppingCartAction", "selectSkuAction", "changeSkuDataMut", "attrSelectAction", "changeSkuModalDataAction", "previewItemAction"]),
+	  onChange(event) {
+		  console.log(event.detail)
+	      wx.showToast({
+	        title: `切换到标签 ${event.detail}`,
+	        icon: 'none'
+	      });
+	    },
+		ontheChange(event) {
+			 this.active2 = event.detail
+		    wx.showToast({
+		      icon: 'none',
+		      title: `切换至第${event.detail}项`
+		    });
+		  },
+	  tabtap(item){
+	  	if(!this.sizeCalcState){
+	  		this.calcSize();
+	  	}
+	  	
+	  	this.currentId = item.id;
+	  	let factor = this.foods.findIndex(sitem=>sitem.sequence === item.id);
+	  	this.tabScrollTop = this.foods[factor].top;
+	  },
+	  //计算右侧栏每个tab的高度等信息
+	  calcSize(){
+	  	let h = 0;
+	  	this.foods.forEach(item=>{
+	  		let view = uni.createSelectorQuery().select("#main-" + item.id);
+	  		view.fields({
+	  			size: true
+	  		}, data => {
+	  			item.top = h;
+	  			h += 100;
+	  			item.bottom = h;
+	  		}).exec();
+	  	})
+	  	this.sizeCalcState = true;
+	  },
+	  // ...mapMutations("shoppingCart", ["changeReduceFeeDataMut", "changeSkuModalMut", "changeItemModalMut"]),
+	  // ...mapActions("shoppingCart", ["getMenuDataAction", "getCommentDataAction", "getCategoryMenuDataAction", "addItemAction", "reduceItemAction", "closeShoppingCartAction", "selectSkuAction", "changeSkuDataMut", "attrSelectAction", "changeSkuModalDataAction", "previewItemAction"]),
 	categoryClick(item, index) {
 	     this.tagIndex = index;
-	     this.getCategoryMenuDataAction({index})
+	     // this.getCategoryMenuDataAction({index})
 	   },
     menuClick() {
          this.left = 40 + 'rpx'
@@ -206,13 +300,14 @@ export default {
     commentClick() {
          this.left = 182 + 'rpx'
          this.pageIndex = 1
-         this.getCommentDataAction()
+         // this.getCommentDataAction()
        },
     shopClick() {
          this.left = 325 + 'rpx'
          this.pageIndex = 2
        },
-  }
+	   
+},
 }
 </script>
 <style scoped>
@@ -310,7 +405,7 @@ export default {
   position: absolute;
   width: 60rpx;
   height: 4rpx;
-  background-color: orange;
+  background-color: ;
   left: 40rpx;
   bottom: 0rpx;
   transition: left 0.2s;
@@ -318,8 +413,8 @@ export default {
 .list-c {
   display: flex;
   position: fixed;
-  top: 220rpx;
-  bottom: 200rpx;
+  top: 250rpx;
+  bottom: 0rpx;
  }
 .list-c .list-l {
   display: flex;
@@ -495,26 +590,15 @@ export default {
    color: orange;
    font-size: 40rpx;
 }
-.tags-c{
-  display: flex;
-  align-items: center;
-  margin-top: 10rpx;
-}
-.tags-c img{
-  width: 60rpx;
-  height:30rpx;
-}
-
-
 
 .comment-c .comment-sc {
   display: flex;
   position: fixed;
-  top: 220rpx;
+  top: 250rpx;
   flex-direction: column;
   height: 100%;
 }
-.comment .comment-sc .comment-header {
+.comment-c .comment-sc .comment-header {
 	margin-top: 20rpx;
 	display: flex;
 	align-items: center;
@@ -523,83 +607,101 @@ export default {
 	width: 100%;
 	justify-content: space-around;
 }
-.comment .comment-sc .comment-header .h-l {
+.comment-c .comment-sc .comment-header .h-l {
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
 }
-.comment .comment-sc .comment-header .h-l .score {
-            font-size: 50rpx;
-            color: #CC0000;
+.comment-c .comment-sc .comment-header .h-l .score {
+	font-size: 50rpx;
+	color: #CC0000;
 }
-.comment .comment-sc .comment-header .h-l .title {
+.comment-c .comment-sc .comment-header .h-l .title {
 	font-size: 20rpx;
 	color: #000000;
 }
-.comment .comment-sc .comment-header .h-m {
+.comment-c .comment-sc .comment-header .h-m {
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: space-around;
 }
-.comment .comment-sc .comment-header .h-m .m-t {
+.comment-c .comment-sc .comment-header .h-m .m-t {
 	display: flex;
 	align-items: center;
 }
-.comment .comment-sc .comment-header .h-m .m-t .title {
+.comment-c .comment-sc .comment-header .h-m .m-t .title {
   font-size: 20rpx;
   color: #000000;
 }
-.comment .comment-sc .comment-header .h-m .m-t .star-c {
+.comment-c .comment-sc .comment-header .h-m .m-t .star-c {
   display: flex;
   align-items: center;
   margin: 0 30rpx;
 }
-.comment .comment-sc .comment-header .h-m .m-t .star-c i {
+.comment-c .comment-sc .comment-header .h-m .m-t .star-c i {
   color: #FF3333;
   font-size: 24rpx;
 }
-.comment .comment-sc .comment-header .h-m .m-t .score {
+.comment-c .comment-sc .comment-header .h-m .m-t .score {
               font-size: 24rpx;
               color: #FF3333;
 }
-.comment .comment-sc .comment-header .h-m .m-b {
-            /* @extend .m-t; */
+.comment-c .comment-sc .comment-header .h-m .m-b {
+    display: flex;
+    align-items: center;
 }
-.comment .comment-sc .comment-header .line {
+.comment-c .comment-sc .comment-header .h-m .m-b .title {
+  font-size: 20rpx;
+  color: #000000;
+}
+.comment-c .comment-sc .comment-header .h-m .m-b .star-c {
+  display: flex;
+  align-items: center;
+  margin: 0 30rpx;
+}
+.comment-c .comment-sc .comment-header .h-m .m-b .star-c i {
+  color: #FF3333;
+  font-size: 24rpx;
+}
+.comment-c .comment-sc .comment-header .h-m .m-b .score {
+              font-size: 24rpx;
+              color: #FF3333;
+}
+.comment-c .comment-sc .comment-header .line {
           width: 2rpx;
           height: 80rpx;
           background-color: #FF3333	;
           margin-left: 30rpx;
 }
-.comment .comment-sc .comment-header .h-r {
+.comment-c .comment-sc .comment-header .h-r {
           /* @extend .h-l; */
 }
 .comment .comment-sc .comment-header .h-r .score {
             color: $textDarkGray-color
 }
-.comment .comment-sc .comment-list {
+.comment-c .comment-sc .comment-list {
         margin-top: 20rpx;
         display: flex;
         flex-direction: column;
 }
-.comment .comment-sc .comment-list .item-c {
+.comment-c .comment-sc .comment-list .item-c {
           display: flex;
           overflow: hidden;
           background-color: white;
           border-bottom: 2rpx solid #FF3333	;
 }		  
-.comment .comment-sc .comment-list .item-c .item-l {
+.comment-c .comment-sc .comment-list .item-c .item-l {
             margin-left: 30rpx;
             margin-top: 20rpx;
 }
-.comment .comment-sc .comment-list .item-c .item-l img {
+.comment-c .comment-sc .comment-list .item-c .item-l img {
               width: 70rpx;
               height: 70rpx;
               border-radius: 35rpx;
 }
-.comment .comment-sc .comment-list .item-c .item-r {
+.comment-c .comment-sc .comment-list .item-c .item-r {
             display: flex;
             flex-direction: column;
             background-color: white;
@@ -608,90 +710,90 @@ export default {
             margin-right: 30rpx;
             flex: 1;
 }
-.comment .comment-sc .comment-list .item-c .item-r .h-r {
+.comment-c .comment-sc .comment-list .item-c .item-r .h-r {
               display: flex;
               flex-direction: column;
               flex: 1;
 }
-.comment .comment-sc .comment-list .item-c .item-r .h-r .r-t {
+.comment-c .comment-sc .comment-list .item-c .item-r .h-r .r-t {
                 display: flex;
                 justify-content: space-between;
 }
-.comment .comment-sc .comment-list .item-c .item-r .h-r .r-t .name {
+.comment-c .comment-sc .comment-list .item-c .item-r .h-r .r-t .name {
                   font-size: 32rpx;
                   color:  #000000;
 }
-.comment .comment-sc .comment-list .item-c .item-r .h-r .r-t .date {
+.comment-c .comment-sc .comment-list .item-c .item-r .h-r .r-t .date {
                   font-size:20rpx;
                   color: #CCCCCC;
 }
-.comment .comment-sc .comment-list .item-c .item-r .h-r .r-b {
+.comment-c .comment-sc .comment-list .item-c .item-r .h-r .r-b {
                 display: flex;
                 align-items: center;
 }
-.comment .comment-sc .comment-list .item-c .item-r .h-r .r-b .b-l {
+.comment-c .comment-sc .comment-list .item-c .item-r .h-r .r-b .b-l {
                   display: flex;
                   align-items: center;
 }
-.comment .comment-sc .comment-list .item-c .item-r .h-r .r-b .b-l i {
+.comment-c .comment-sc .comment-list .item-c .item-r .h-r .r-b .b-l i {
                     font-size: 20rpx;
                     color: ;
 }
-.comment .comment-sc .comment-list .item-c .item-r .h-r .r-b .b-r {
+.comment-c .comment-sc .comment-list .item-c .item-r .h-r .r-b .b-r {
                   font-size:20rpx;
                   color: #CCCCCC;
                   margin-left: 20rpx;
 }
-.comment .comment-sc .comment-list .item-c .item-r .r-comtent {
+.comment-c .comment-sc .comment-list .item-c .item-r .r-comtent {
               display: flex;
               margin-top: 10rpx;
 }
-.comment .comment-sc .comment-list .item-c .item-r .r-comtent span {
+.comment-c  .comment-sc .comment-list .item-c .item-r .r-comtent span {
                 font-size: 24rpx;
                 color: #000000;
 }
-.comment .comment-sc .comment-list .item-c .item-r .r-imgs {
+.comment-c .comment-sc .comment-list .item-c .item-r .r-imgs {
               display: flex;
               flex-direction: row;
               margin-top: 10rpx;
 }
-.comment .comment-sc .comment-list .item-c .item-r .r-imgs .single {
+.comment-c .comment-sc .comment-list .item-c .item-r .r-imgs .single {
                 margin-top: 10rpx;
 }
-.comment .comment-sc .comment-list .item-c .item-r .r-imgs .single img {
+.comment-c .comment-sc .comment-list .item-c .item-r .r-imgs .single img {
                   width: 300rpx;
                   height: 300rpx;
 }
-.comment .comment-sc .comment-list .item-c .item-r .r-imgs .double {
+.comment-c .comment-sc .comment-list .item-c .item-r .r-imgs .double {
 }
-.comment .comment-sc .comment-list .item-c .item-r .r-imgs .double img {
+.comment-c .comment-sc .comment-list .item-c .item-r .r-imgs .double img {
                   width: 160rpx;
                   height: 160rpx;
                   margin-right: 16rpx;
 }
-.comment .comment-sc .comment-list .item-c .item-r .r-imgs .four {
+.comment-c .comment-sc .comment-list .item-c .item-r .r-imgs .four {
                 display: flex;
                 width: 300rpx;
                 flex-wrap: wrap;
                 justify-content: space-between;
 }
-.comment .comment-sc .comment-list .item-c .item-r .r-imgs .four img {
+.comment-c .comment-sc .comment-list .item-c .item-r .r-imgs .four img {
                   width: 140rpx;
                   height: 140rpx;
                   margin: 10rpx 0;
 }
-.comment .comment-sc .comment-list .item-c .item-r .reply-c {
+.comment-c .comment-sc .comment-list .item-c .item-r .reply-c {
               display: flex;
               background-color: #F4F4F4;
               padding: 20rpx 14rpx;
               margin-top: 20rpx;
               margin-bottom: 30rpx;
 }
-.comment .comment-sc .comment-list .item-c .item-r .reply-c span {
+.comment-c .comment-sc .comment-list .item-c .item-r .reply-c span {
                 color: #CCCCCC;
                 font-size: 24rpx;
 }
-.comment .comment-sc .comment-list .item-c:last-child {
+.comment- .comment-sc .comment-list .item-c:last-child {
           margin-bottom: 220rpx;
 }  
    
@@ -699,7 +801,7 @@ export default {
 .shop-info {
     display: flex;
     position: fixed;
-    top: 220rpx;
+    top: 250rpx;
     flex-direction: column;
     width: 100%;
     height: 100%;
@@ -742,4 +844,10 @@ export default {
         /* @extend .top; */
         border-bottom: 0 solid #FFB6C1;
 }
+.divLine{
+ background: #FF3333;
+ width: 100%;
+ height: 2rpx;
+}
+
 </style>

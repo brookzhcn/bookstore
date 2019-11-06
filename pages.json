@@ -216,13 +216,23 @@
         ,{
             "path" : "pages/clinic/clinic",
             "style" : {
-				"navigationBarTitleText": "诊所预约"
+				"navigationBarTitleText": "诊所预约",
+				"usingComponents": {
+				  "van-tab": "/wxcomponents/vant/dist/tab/index",
+				  "van-tabs": "/wxcomponents/vant/dist/tabs/index"
+				}
 			}
         }
         ,{
             "path" : "pages/shoppingcart/shoppingcart",
             "style" : {
-				"navigationBarTitleText": "诊所详情"
+				"navigationBarTitleText": "诊所详情",
+				"usingComponents": {
+				  "van-tab": "/wxcomponents/vant/dist/tab/index",
+				  "van-tabs": "/wxcomponents/vant/dist/tabs/index",
+				   "van-sidebar": "/wxcomponents/vant/dist/sidebar/index",
+				    "van-sidebar-item": "/wxcomponents/vant/dist/sidebar-item/index"
+				}
 			}
         }
     ],
